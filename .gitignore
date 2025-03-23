@@ -33,3 +33,5 @@
 
 # Binary directory
 bin/*
+# CMake build directory
+build/
