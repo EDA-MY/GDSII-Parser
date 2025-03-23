@@ -6,7 +6,7 @@
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/src/GDSIIParser",
-      "args": ["/home/zltan/Desktop/GDSII-Parser/benchmark/box.gds"],
+      "args": [""],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
