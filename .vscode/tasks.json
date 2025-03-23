@@ -2,18 +2,81 @@
     "version": "2.0.0",
     "tasks": [
       {
-        "label": "make-debug",
+        "label": "Build Project",
         "type": "shell",
-        "command": "make",
+        "command": "cmake",
         "args": [
-          "DEBUG=1"
+            "--build",
+            "build"
+        ],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+        "problemMatcher": [],
+        "detail": "Build the project using CMake"
+      },
+      {
+        "label": "cmake-configure-debug",
+        "type": "shell",
+        "command": "cmake",
+        "args": [
+          "-S",
+          ".",
+          "-B",
+          "build",
+          "-DCMAKE_BUILD_TYPE=Debug"
         ],
         "group": {
           "kind": "build",
           "isDefault": true
         },
         "problemMatcher": [],
-        "detail": "Build the project with debugging flags"
+        "detail": "Configure the project with CMake in Debug mode"
+      },
+      {
+        "label": "cmake-configure-release",
+        "type": "shell",
+        "command": "cmake",
+        "args": [
+          "-S",
+          ".",
+          "-B",
+          "build",
+          "-DCMAKE_BUILD_TYPE=Release"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": [],
+        "detail": "Configure the project with CMake in Release mode"
+      },
+      {
+        "label": "cmake-build",
+        "type": "shell",
+        "command": "cmake",
+        "args": [
+          "--build",
+          "build"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": false
+        },
+        "problemMatcher": [],
+        "detail": "Build the project using CMake"
+      },
+      {
+        "label": "cmake-test",
+        "type": "shell",
+        "command": "ctest",
+        "args": [
+          "--output-on-failure"
+        ],
+        "group": "test",
+        "problemMatcher": [],
+        "detail": "Run tests using CTest"
       }
     ]
-  }
+}
