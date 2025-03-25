@@ -1,8 +1,15 @@
 #ifndef GDSII_COPMMON_HPP
 #define GDSII_COPMMON_HPP
 
+#include <vector>
+#include <string>
 #include <iostream>
 #include <unordered_map>
+
+typedef std::pair<uint8_t, uint8_t> byte_pair_t;
+typedef std::vector<std::vector<int>> vec_vec_int_t;
+typedef std::vector<std::vector<uint8_t>> vec_vec_uint8_t;
+typedef std::vector<std::vector<std::string>> vec_vec_str_t;
 
 enum class GDSIIRecordType : uint16_t {
     // File header records
@@ -63,8 +70,8 @@ enum class GDSIIRecordType : uint16_t {
 
 // Unordered map for faster lookups
 static std::unordered_map<uint16_t, std::string> recordEnumToStringMap = {
-    { static_cast<uint16_t>(GDSIIRecordType::GDSIIHeaderRecord ) , "Header Record"         },
-    { static_cast<uint16_t>(GDSIIRecordType::GDSIIBgnLib       ) , "Begin Library"         },
+    { static_cast<uint16_t>(GDSIIRecordType::GDSIIHeaderRecord ) , "HEADER"                },
+    { static_cast<uint16_t>(GDSIIRecordType::GDSIIBgnLib       ) , "BGNLIB"                },
     { static_cast<uint16_t>(GDSIIRecordType::GDSIILibName      ) , "Library Name"          },
     { static_cast<uint16_t>(GDSIIRecordType::GDSIIRefLibs      ) , "Referenced Libraries"  },
     { static_cast<uint16_t>(GDSIIRecordType::GDSIIFonts        ) , "Fonts"                 },
