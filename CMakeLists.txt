@@ -32,7 +32,7 @@ endif()
 include(FetchContent)
 
 # Use existing Google Test if available, otherwise fetch it
-if(EXISTS "${CMAKE_SOURCE_DIR}/extern/googletest")
+if(EXISTS "${CMAKE_SOURCE_DIR}/extern/googletest" AND IS_DIRECTORY "${CMAKE_SOURCE_DIR}/extern/googletest/.git")
     message(STATUS "Using existing Google Test from extern/googletest")
     add_subdirectory(extern/googletest)
 else()
